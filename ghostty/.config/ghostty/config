@@ -1,2 +1,10 @@
-font-family=Fira Code
-theme = Github Dark Dimmed
+theme = Django Reborn Again
+
+background-opacity = 0.8
+background-blur = true
+
+font-family = FiraCode Nerd Font Mono Reg
+font-size = 14
+
+cursor-color = #FFFFFF
+cursor-style = block

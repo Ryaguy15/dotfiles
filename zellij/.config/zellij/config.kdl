@@ -329,7 +329,7 @@ load_plugins {
 // Default: default
 //
 // theme "default"
-
+theme "everforest-dark"
 // The name of the default layout to load on startup
 // Default: "default"
 // (Requires restart)

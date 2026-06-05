@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -285,6 +285,25 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+    },
+  },
+
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+      'TmuxNavigatorProcessList',
+    },
+    keys = {
+      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
 
@@ -884,7 +903,9 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      require('oasis').setup() -- (see Configuration below for all customization options)
+      require('oasis').setup {
+        transparent = true,
+      } -- (see Configuration below for all customization options)
       vim.cmd.colorscheme 'oasis-cactus' -- After setup, apply theme (or any style like "oasis-night")
 
       require('lualine').setup {
@@ -931,6 +952,14 @@ require('lazy').setup({
     config = function()
       require('dashboard').setup {
         theme = 'hyper',
+        hide = {
+          statusline = true,
+        },
+        config = {
+          week_header = {
+            enable = true,
+          },
+        },
       }
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
